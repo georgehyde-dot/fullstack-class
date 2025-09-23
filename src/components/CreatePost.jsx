@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
 import { createPost } from '../api/posts.js'
 import { useAuth } from '../contexts/AuthContext.jsx'
+import { Link } from 'react-router-dom'
 
 export function CreatePost() {
   const [token] = useAuth()
@@ -20,7 +21,14 @@ export function CreatePost() {
     createPostMutation.mutate()
   }
 
-  if (!token) return <div>Please log in to create new posts.</div>
+  if (!token)
+    return (
+      <div>
+        {' '}
+        <Link to='/signup'>Sign Up</Link>
+        <Link to='/login'>Login</Link> Please log in to create new posts.
+      </div>
+    )
 
   return (
     <form onSubmit={handleSubmit}>
