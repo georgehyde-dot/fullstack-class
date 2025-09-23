@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { PostList } from './components/PostList.jsx'
-import { CreatePost } from './components/CreatePost.jsx'
-import { PostFilter } from './components/PostFilter.jsx'
-import { PostSorting } from './components/PostSorting.jsx'
-import { getPosts } from './api/posts.js'
+import { PostList } from '../components/PostList.jsx'
+import { CreatePost } from '../components/CreatePost.jsx'
+import { PostFilter } from '../components/PostFilter.jsx'
+import { PostSorting } from '../components/PostSorting.jsx'
+import { getPosts } from '../api/posts.js'
+import { Link } from 'react-router-dom'
 
 export function Blog() {
   const [author, setAuthor] = useState('')
@@ -20,6 +21,8 @@ export function Blog() {
   return (
     <div style={{ padding: 8 }}>
       <h1>Welcome to my Blog </h1>
+      <Link to='/signup'>Sign Up</Link>
+      <Link to='/login'>Login</Link>
       <CreatePost />
       <br />
       <hr />
